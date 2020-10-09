@@ -1,1 +1,1 @@
-g++ -Wall -o matrixCalculator main.cpp matrixMath/matrixMath.cpp utils/*.cpp -lm
+g++ -Wall -o matrixCalculator main.cpp matrixMath/*.cpp utils/*.cpp -lm

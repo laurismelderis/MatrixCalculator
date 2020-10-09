@@ -1,19 +1,30 @@
+/*  - TO DO -
+    1. Create operations to matrixes:
+    	- add;			DONE
+    	- subtract;		DONE
+    	- multiply;		DONE
+    	- divide;
+    	- transponent;
+    	- inverse.
+    2. Make a way to use matrixes to calculate system of equations.
+*/
+#include <stdio.h>
 #include <cstdlib>
 #include <time.h>
 
 #include "matrixMath.h"
 #include "../utils/utils.h"
 
-int *MatrixMath::create(int columnCount = 3, int rowCount = 3){
-	Utils utils;
-	srand(time(0));
-	int size = columnCount*rowCount;
-	int *newMatrix = new int (size);
-	for(int i = 0; i < size; i++){
-		newMatrix[i] = utils.randomInteger(-25, 25);
-	}
-	return newMatrix;
-}
+// int *MatrixMath::createRand(int columnCount = 3, int rowCount = 3){
+// 	Utils utils;
+// 	srand(time(0));
+// 	int size = columnCount*rowCount;
+// 	int *newMatrix = new int (size);
+// 	for(int i = 0; i < size; i++){
+// 		newMatrix[i] = utils.randomInteger(-25, 25);
+// 	}
+// 	return newMatrix;
+// }
 void MatrixMath::add(int columCount, int rowCount, int *matrixA, int *matrixB){
 	int index = 0;
 	for (int i = 0; i < columCount; i++){
