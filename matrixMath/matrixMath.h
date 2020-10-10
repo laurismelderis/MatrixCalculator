@@ -1,10 +1,16 @@
 #pragma once
 
-class MatrixMath {
-	public:
-		// int *createRand(int, int);
-		void add(int, int, int*, int*);
-		void sub(int, int, int*, int*);
-		int *mul(int, int, int*, int, int, int*);
-		
-};
+#include "matrix.h"
+
+namespace MatrixMath {
+void add(Matrix, Matrix);
+void sub(Matrix, Matrix);
+Matrix mul(Matrix, Matrix);
+}
+
+// class MatrixMath {
+// 	public:
+// 		void add(Matrix, Matrix);
+// 		void sub(Matrix, Matrix);
+// 		Matrix mul(Matrix, Matrix);
+// };
