@@ -17,31 +17,53 @@
 #include "../utils/utils.h"
 
 namespace MatrixMath {
-void add(Matrix matrix1, Matrix matrix2){
-	int size = matrix1.getSize();
-	for(int i = 0; i < size; i++){
-		matrix1.matrix[i] += matrix2.matrix[i];
+Matrix add(Matrix matrix1, Matrix matrix2){
+	if ((matrix1.getRowCount() != matrix2.getRowCount()) && 
+		(matrix1.getColCount() != matrix2.getColCount())){
+		printf("Addition failed, both matrix columns and rows aren't equal");
+		return 0;
 	}
-}
-void sub(Matrix matrix1, Matrix matrix2){
 	int size = matrix1.getSize();
+	Matrix newMatrix(size);
 	for(int i = 0; i < size; i++){
-		matrix1.matrix[i] -= matrix2.matrix[i];
+		newMatrix.matrix[i] = matrix1.matrix[i] + matrix2.matrix[i];
 	}
+	return newMatrix;
 }
-// Matrix mul(Matrix matrix1, Matrix matrix2){
-// 	Matrix newMatrix();
-// 	int counter = 0;
-// 	for (int i = 0; i < rowCount1; i++){
-// 		for (int j = 0; j < columnCount2; j++){
-// 			int sum = 0;
-// 			for (int z = 0; z < rowCount2; z++){
-// 				sum += matrixA[z+columnCount1*i]*matrixB[z*columnCount2+j];
-// 			}
-// 			c[counter] = sum;
-// 			counter++;
-// 		}
-// 	}
-// 	return c;
-// }
+Matrix sub(Matrix matrix1, Matrix matrix2){
+	if ((matrix1.getRowCount() != matrix2.getRowCount()) && 
+		(matrix1.getColCount() != matrix2.getColCount())){
+		printf("Subtraction failed, both matrix columns and rows aren't equal");
+		return 0;
+	}
+	int size = matrix1.getSize();
+	Matrix newMatrix(size);
+	for(int i = 0; i < size; i++){
+		newMatrix.matrix[i] = matrix1.matrix[i] - matrix2.matrix[i];
+	}
+	return newMatrix;
+}
+Matrix mul(Matrix matrix1, Matrix matrix2){
+	int rows1 = matrix1.getRowCount();
+	int rows2 = matrix2.getRowCount();
+	int cols1 = matrix1.getColCount();
+	int cols2 = matrix2.getColCount();
+	if (cols1 != rows2){
+		printf("Multiplication failed, columns aren't equal to rows");
+		return 0;
+	}
+	Matrix newMatrix(rows1, rows1);
+	int counter = 0;
+	for (int i = 0; i < rows1; i++){
+		for (int j = 0; j < cols2; j++){
+			int sum = 0;
+			for (int z = 0; z < rows2; z++){
+				sum += matrix1.matrix[z+cols1*i]*matrix2.matrix[z*cols2+j];
+			}
+			newMatrix.matrix[counter] = sum;
+			counter++;
+		}
+	}
+	return newMatrix;
+}
 }

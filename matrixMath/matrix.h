@@ -3,7 +3,11 @@
 class Matrix{
 	public:
 		int *matrix;
+		Matrix();
+		Matrix(int);
 		Matrix(int, int);
+		void create(int);
+		void create(int, int);
 		void rand();
 		void zero();
 		void ones();

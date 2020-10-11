@@ -9,17 +9,19 @@
 #include "matrixMath/matrixMath.h"
 
 int main(){
-	Matrix matrix1(6, 3);
-	Matrix matrix2(6, 3);
-	matrix1.rand();
-	matrix2.rand();
-	matrix1.print();
+	Matrix x(4, 4);
+	Matrix y(4, 4);
+	x.rand();
+	y.rand();
+	Matrix z = MatrixMath::mul(x, y);
+	x.print();
 	puts("");
-	matrix2.print();
+	y.print();
 	puts("");
-	MatrixMath::sub(matrix1, matrix2);
-	matrix1.print();
-	matrix1.del();
-	matrix2.del();
+	z.print();
+	puts("");
+	x.del();
+	y.del();
+	z.del();
 	return 0;
 }

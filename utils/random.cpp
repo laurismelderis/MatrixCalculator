@@ -3,6 +3,9 @@
 #include "utils.h" 
 
 int Utils::randomInteger(int min, int max) {
-	int randValue = min + (rand() % (max+abs(min)+1));
-	return randValue;
+	if (min < 0){
+		return min + (rand() % (max+abs(min)+1));
+	} else {
+		return min + (rand() % (max));
+	}
 }
