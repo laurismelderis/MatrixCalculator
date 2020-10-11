@@ -9,19 +9,9 @@
 #include "matrixMath/matrixMath.h"
 
 int main(){
-	Matrix x(4, 4);
-	Matrix y(4, 4);
-	x.rand();
-	y.rand();
-	Matrix z = MatrixMath::mul(x, y);
+	Matrix x(4, 3);
+	x.ones();
 	x.print();
-	puts("");
-	y.print();
-	puts("");
-	z.print();
-	puts("");
 	x.del();
-	y.del();
-	z.del();
 	return 0;
 }

@@ -20,7 +20,7 @@ namespace MatrixMath {
 Matrix add(Matrix matrix1, Matrix matrix2){
 	if ((matrix1.getRowCount() != matrix2.getRowCount()) && 
 		(matrix1.getColCount() != matrix2.getColCount())){
-		printf("Addition failed, both matrix columns and rows aren't equal");
+		printf("Addition failed, both matrix columns and rows aren't equal\n");
 		return 0;
 	}
 	int size = matrix1.getSize();
@@ -33,7 +33,7 @@ Matrix add(Matrix matrix1, Matrix matrix2){
 Matrix sub(Matrix matrix1, Matrix matrix2){
 	if ((matrix1.getRowCount() != matrix2.getRowCount()) && 
 		(matrix1.getColCount() != matrix2.getColCount())){
-		printf("Subtraction failed, both matrix columns and rows aren't equal");
+		printf("Subtraction failed, both matrix columns and rows aren't equal\n");
 		return 0;
 	}
 	int size = matrix1.getSize();
@@ -49,7 +49,7 @@ Matrix mul(Matrix matrix1, Matrix matrix2){
 	int cols1 = matrix1.getColCount();
 	int cols2 = matrix2.getColCount();
 	if (cols1 != rows2){
-		printf("Multiplication failed, columns aren't equal to rows");
+		printf("Multiplication failed, columns aren't equal to rows\n");
 		return 0;
 	}
 	Matrix newMatrix(rows1, rows1);

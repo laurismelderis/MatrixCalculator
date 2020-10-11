@@ -12,12 +12,12 @@ Matrix::Matrix(){
 
 Matrix::Matrix(int size = 9){
 	if (size <= 0){
-		printf("Creating matrix failed, matrix can't have negative or NULL column or row count");
+		printf("Creating matrix failed, matrix can't have negative or NULL column or row count\n");
 		return;
 	}
 	int sqrSize = (int)sqrt(size);
 	if ((size % sqrSize) != 0){
-		printf("Creating matrix failed, the size should be defined for square matrix");
+		printf("Creating matrix failed, the size should be defined for square matrix\n");
 		return;
 	}
 	this->colCount = sqrSize;
@@ -31,7 +31,7 @@ Matrix::Matrix(int size = 9){
 }
 Matrix::Matrix(int columnCount = 3, int rowCount = 3){
 	if (columnCount <= 0 || rowCount <= 0){
-		printf("Creating matrix failed, matrix can't have negative or NULL column or row count");
+		printf("Creating matrix failed, matrix can't have negative or NULL column or row count\n");
 		return;
 	}
 	this->colCount = columnCount;
@@ -45,12 +45,12 @@ Matrix::Matrix(int columnCount = 3, int rowCount = 3){
 }
 void Matrix::create(int size = 9){
 	if (size <= 0){
-		printf("Creating matrix failed, matrix can't have negative or NULL column or row count");
+		printf("Creating matrix failed, matrix can't have negative or NULL column or row count\n");
 		return;
 	}
 	int sqrSize = (int)sqrt(size);
 	if ((size % sqrSize) != 0){
-		printf("Creating matrix failed, the size should be defined for square matrix");
+		printf("Creating matrix failed, the size should be defined for square matrix\n");
 		return;
 	}
 	this->colCount = sqrSize;
@@ -64,7 +64,7 @@ void Matrix::create(int size = 9){
 }
 void Matrix::create(int columnCount = 3, int rowCount = 3){
 	if (columnCount <= 0 || rowCount <= 0){
-		printf("Creating matrix failed, matrix can't have negative or NULL column or row count");
+		printf("Creating matrix failed, matrix can't have negative or NULL column or row count\n");
 		return;
 	}
 	this->colCount = columnCount;
@@ -88,8 +88,15 @@ void Matrix::zero(){
 	}
 }
 void Matrix::ones(){
+	if (this->colCount != this->rowCount){
+		printf("Failed filling ones matrix, matrix should be square\n");
+		return;
+	}
+	matrix[0] = 1;
 	for(int i = 0; i < this->size; i++){
-		matrix[i] = 1;
+		if (i % (this->colCount+1) == 0){
+			matrix[i] = 1;
+		}
 	}
 }
 void Matrix::print(){
